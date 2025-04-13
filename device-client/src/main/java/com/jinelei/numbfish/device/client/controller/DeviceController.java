@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.controller;
+package com.jinelei.numbfish.device.client.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
