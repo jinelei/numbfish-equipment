@@ -1,12 +1,14 @@
 package com.jinelei.numbfish.device.dto;
 
+import com.jinelei.numbfish.device.enumeration.RunningState;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
-public class DeviceUpdateStateRequest {
+public class DeviceRunningStateUpdateRequest {
     private String deviceId;
-    private String state;
+    private RunningState state;
     private LocalDateTime timestamp;
 
     public String getDeviceId() {
@@ -17,11 +19,11 @@ public class DeviceUpdateStateRequest {
         this.deviceId = deviceId;
     }
 
-    public String getState() {
+    public RunningState getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(RunningState state) {
         this.state = state;
     }
 
@@ -36,7 +38,7 @@ public class DeviceUpdateStateRequest {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        DeviceUpdateStateRequest that = (DeviceUpdateStateRequest) o;
+        DeviceRunningStateUpdateRequest that = (DeviceRunningStateUpdateRequest) o;
         return Objects.equals(deviceId, that.deviceId) && Objects.equals(state, that.state) && Objects.equals(timestamp, that.timestamp);
     }
 
@@ -47,9 +49,9 @@ public class DeviceUpdateStateRequest {
 
     @Override
     public String toString() {
-        return "DeviceUpdateStateRequest{" +
+        return "DeviceRunningStateUpdateRequest{" +
                 "deviceId='" + deviceId + '\'' +
-                ", state='" + state + '\'' +
+                ", state=" + state +
                 ", timestamp=" + timestamp +
                 '}';
     }

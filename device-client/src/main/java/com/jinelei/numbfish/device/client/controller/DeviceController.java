@@ -4,7 +4,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.device.api.DeviceApi;
-import com.jinelei.numbfish.device.dto.DeviceUpdateStateRequest;
+import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -31,7 +31,7 @@ public class DeviceController implements DeviceApi {
     @Operation(summary = "创建设备")
     @PostMapping("/updateState")
     @PreAuthorize("hasAuthority('DEVICE_UPDATE_STATE')")
-    public BaseView<Void> updateState(@RequestBody @Valid DeviceUpdateStateRequest request) {
+    public BaseView<Void> updateRunningState(@RequestBody @Valid DeviceRunningStateUpdateRequest request) {
         log.info("更新设备状态: {}", request);
         return new BaseView<>("更新成功");
     }
