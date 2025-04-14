@@ -7,10 +7,8 @@ import com.jinelei.numbfish.device.api.DeviceApi;
 import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,10 +26,9 @@ public class DeviceController implements DeviceApi {
 
     @Override
     @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建设备")
-    @PostMapping("/updateState")
-    @PreAuthorize("hasAuthority('DEVICE_UPDATE_STATE')")
-    public BaseView<Void> updateRunningState(@RequestBody @Valid DeviceRunningStateUpdateRequest request) {
+    @Operation(summary = "更新设备运行状态")
+    @PostMapping("/updateRunningState")
+    public BaseView<Void> updateRunningState(@RequestBody DeviceRunningStateUpdateRequest request) {
         log.info("更新设备状态: {}", request);
         return new BaseView<>("更新成功");
     }
