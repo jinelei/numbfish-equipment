@@ -7,24 +7,24 @@ import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class DeviceRunningStateUpdateRequest {
-    private String deviceId;
-    private RunningState state;
+    private String deviceCode;
+    private RunningState runningState;
     private LocalDateTime timestamp;
 
-    public String getDeviceId() {
-        return deviceId;
+    public String getDeviceCode() {
+        return deviceCode;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setDeviceCode(String deviceId) {
+        this.deviceCode = deviceId;
     }
 
-    public RunningState getState() {
-        return state;
+    public RunningState getRunningState() {
+        return runningState;
     }
 
-    public void setState(RunningState state) {
-        this.state = state;
+    public void setRunningState(RunningState runningState) {
+        this.runningState = runningState;
     }
 
     public LocalDateTime getTimestamp() {
@@ -39,20 +39,17 @@ public class DeviceRunningStateUpdateRequest {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         DeviceRunningStateUpdateRequest that = (DeviceRunningStateUpdateRequest) o;
-        return Objects.equals(deviceId, that.deviceId) && Objects.equals(state, that.state) && Objects.equals(timestamp, that.timestamp);
+        return Objects.equals(deviceCode, that.deviceCode) && Objects.equals(runningState, that.runningState) && Objects.equals(timestamp, that.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(deviceId, state, timestamp);
+        return Objects.hash(deviceCode, runningState, timestamp);
     }
 
     @Override
     public String toString() {
-        return "DeviceRunningStateUpdateRequest{" +
-                "deviceId='" + deviceId + '\'' +
-                ", state=" + state +
-                ", timestamp=" + timestamp +
-                '}';
+        return "DeviceRunningStateUpdateRequest [deviceCode=" + deviceCode + ", runningState=" + runningState
+                + ", timestamp=" + timestamp + "]";
     }
 }
