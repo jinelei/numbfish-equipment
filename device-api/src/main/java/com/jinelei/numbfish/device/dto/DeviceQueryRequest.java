@@ -3,8 +3,8 @@ package com.jinelei.numbfish.device.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.jinelei.numbfish.acquisition.enumeration.RunningState;
 import com.jinelei.numbfish.device.enumeration.DeviceType;
-import com.jinelei.numbfish.device.enumeration.RunningState;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

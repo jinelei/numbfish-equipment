@@ -73,6 +73,7 @@ numbfish:
         - /doc.html
         - /user/login
         - /v3/api-docs/**
+        - /**
   device:
     mqtt:
       enabled: false

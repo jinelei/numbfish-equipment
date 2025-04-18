@@ -1,6 +1,6 @@
 package com.jinelei.numbfish.device.dto;
 
-import com.jinelei.numbfish.device.enumeration.RunningState;
+import com.jinelei.numbfish.acquisition.enumeration.RunningState;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

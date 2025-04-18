@@ -81,6 +81,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.jinelei.numbfish</groupId>
+            <artifactId>acquisition-api</artifactId>
+            <version>${numbfish-acquisition-api.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
             <version>${jakarta.validation-api.version}</version>

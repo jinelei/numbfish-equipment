@@ -1,13 +1,10 @@
 package com.jinelei.numbfish.device.client.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.jinelei.numbfish.acquisition.enumeration.RunningState;
 import com.jinelei.numbfish.device.enumeration.DeviceType;
-import com.jinelei.numbfish.device.enumeration.RunningState;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("unused")
 @TableName("device")
