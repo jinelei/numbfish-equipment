@@ -19,6 +19,7 @@ import java.util.Map;
 public interface DeviceConvertor {
     @Mappings({
             @Mapping(target = "id", ignore = true),
+            @Mapping(target = "lastUpdateRunningStateTime", ignore = true),
             @Mapping(target = "createdTime", ignore = true),
             @Mapping(target = "createdUserId", ignore = true),
             @Mapping(target = "updatedTime", ignore = true),
@@ -27,6 +28,7 @@ public interface DeviceConvertor {
     DeviceEntity entityFromCreateRequest(DeviceCreateRequest source);
 
     @Mappings({
+            @Mapping(target = "lastUpdateRunningStateTime", ignore = true),
             @Mapping(target = "runningState", ignore = true),
             @Mapping(target = "createdTime", ignore = true),
             @Mapping(target = "createdUserId", ignore = true),
