@@ -1,12 +1,10 @@
 package com.jinelei.numbfish.device.client.service.impl;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
 
+import com.jinelei.numbfish.device.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -25,16 +21,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jinelei.numbfish.common.exception.InvalidArgsException;
 import com.jinelei.numbfish.common.helper.Snowflake;
 import com.jinelei.numbfish.device.client.convertor.DeviceConvertor;
-import com.jinelei.numbfish.device.client.domain.BaseEntity;
 import com.jinelei.numbfish.device.client.domain.DeviceEntity;
 import com.jinelei.numbfish.device.client.mapper.DeviceMapper;
 import com.jinelei.numbfish.device.client.service.DeviceService;
-import com.jinelei.numbfish.device.dto.DeviceCreateRequest;
-import com.jinelei.numbfish.device.dto.DeviceDeleteRequest;
-import com.jinelei.numbfish.device.dto.DeviceQueryRequest;
-import com.jinelei.numbfish.device.dto.DeviceResponse;
-import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
-import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
 
 @SuppressWarnings("unused")
 @Service
@@ -84,6 +73,18 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, DeviceEntity>
         wrapper.set(DeviceEntity::getLastUpdateRunningStateTime, request.getTimestamp());
         int updated = baseMapper.update(wrapper);
         Assert.state(updated == 1, "设备更新运行状态失败");
+    }
+
+    @Override
+    public void updateActivateState(@Validated DeviceActivateStateUpdateRequest request) {
+        LambdaUpdateWrapper<DeviceEntity> wrapper = Wrappers.lambdaUpdate(DeviceEntity.class);
+        wrapper.eq(DeviceEntity::getCode, request.getDeviceCode());
+        wrapper.isNull(DeviceEntity::getActivateTime);
+        wrapper.set(DeviceEntity::getActivateTime, request.getTimestamp());
+        int updated = baseMapper.update(wrapper);
+        if (updated != 1) {
+            log.warn("设备激活状态更新失败，设备已激活");
+        }
     }
 
     @Override

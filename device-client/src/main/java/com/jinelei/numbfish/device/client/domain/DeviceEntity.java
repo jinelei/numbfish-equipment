@@ -5,6 +5,7 @@ import com.jinelei.numbfish.acquisition.enumeration.RunningState;
 import com.jinelei.numbfish.device.enumeration.DeviceType;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @SuppressWarnings("unused")
 @TableName("device")
@@ -14,6 +15,7 @@ public class DeviceEntity extends BaseEntity<Long> {
     protected DeviceType deviceType;
     protected RunningState runningState;
     protected LocalDateTime lastUpdateRunningStateTime;
+    protected LocalDateTime activateTime;
 
     public String getCode() {
         return code;
@@ -55,53 +57,36 @@ public class DeviceEntity extends BaseEntity<Long> {
         this.lastUpdateRunningStateTime = lastUpdateRunningStateTime;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((code == null) ? 0 : code.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((deviceType == null) ? 0 : deviceType.hashCode());
-        result = prime * result + ((runningState == null) ? 0 : runningState.hashCode());
-        result = prime * result + ((lastUpdateRunningStateTime == null) ? 0 : lastUpdateRunningStateTime.hashCode());
-        return result;
+    public LocalDateTime getActivateTime() {
+        return activateTime;
+    }
+
+    public void setActivateTime(LocalDateTime activateTime) {
+        this.activateTime = activateTime;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        DeviceEntity other = (DeviceEntity) obj;
-        if (code == null) {
-            if (other.code != null)
-                return false;
-        } else if (!code.equals(other.code))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (deviceType != other.deviceType)
-            return false;
-        if (runningState != other.runningState)
-            return false;
-        if (lastUpdateRunningStateTime == null) {
-            if (other.lastUpdateRunningStateTime != null)
-                return false;
-        } else if (!lastUpdateRunningStateTime.equals(other.lastUpdateRunningStateTime))
-            return false;
-        return true;
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        DeviceEntity that = (DeviceEntity) object;
+        return Objects.equals(code, that.code) && Objects.equals(name, that.name) && deviceType == that.deviceType && runningState == that.runningState && Objects.equals(lastUpdateRunningStateTime, that.lastUpdateRunningStateTime) && Objects.equals(activateTime, that.activateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), code, name, deviceType, runningState, lastUpdateRunningStateTime, activateTime);
     }
 
     @Override
     public String toString() {
-        return "DeviceEntity [code=" + code + ", name=" + name + ", deviceType=" + deviceType + ", runningState="
-                + runningState + ", lastUpdateRunningStateTime=" + lastUpdateRunningStateTime + "]";
+        return "DeviceEntity{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", deviceType=" + deviceType +
+                ", runningState=" + runningState +
+                ", lastUpdateRunningStateTime=" + lastUpdateRunningStateTime +
+                ", activateTime=" + activateTime +
+                '}';
     }
-
 }

@@ -4,16 +4,9 @@ import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.dto.DeviceCreateRequest;
-import com.jinelei.numbfish.device.dto.DeviceDeleteRequest;
-import com.jinelei.numbfish.device.dto.DeviceQueryRequest;
-import com.jinelei.numbfish.device.dto.DeviceResponse;
-import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
-import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
+import com.jinelei.numbfish.device.dto.*;
 
 import jakarta.validation.Valid;
-
-import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,13 +43,22 @@ public interface DeviceApi {
     BaseView<Void> update(@Valid DeviceUpdateRequest request);
 
     /**
-     * 更新设备状态
+     * 更新设备运行状态
      *
      * @param request 客户端请求对象
      * @return 客户端响应对象
      */
     @PostMapping("/device/update/runningState")
     BaseView<Void> updateRunningState(@RequestBody @Valid DeviceRunningStateUpdateRequest request);
+
+    /**
+     * 更新设备激活状态
+     *
+     * @param request 客户端请求对象
+     * @return 客户端响应对象
+     */
+    @PostMapping("/device/update/activateState")
+    BaseView<Void> updateActivateState(@RequestBody @Valid DeviceActivateStateUpdateRequest request);
 
     /**
      * 查询设备详情

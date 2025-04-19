@@ -12,18 +12,14 @@ import com.jinelei.numbfish.common.view.PageView;
 import com.jinelei.numbfish.device.api.DeviceApi;
 import com.jinelei.numbfish.device.client.domain.DeviceEntity;
 import com.jinelei.numbfish.device.client.service.DeviceService;
-import com.jinelei.numbfish.device.dto.DeviceCreateRequest;
-import com.jinelei.numbfish.device.dto.DeviceDeleteRequest;
-import com.jinelei.numbfish.device.dto.DeviceQueryRequest;
-import com.jinelei.numbfish.device.dto.DeviceResponse;
-import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
-import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
+import com.jinelei.numbfish.device.dto.*;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -80,11 +76,20 @@ public class DeviceController implements DeviceApi {
     @PostMapping("/update/runningState")
     public BaseView<Void> updateRunningState(@Valid @RequestBody DeviceRunningStateUpdateRequest request) {
         deviceService.updateRunningState(request);
-        return new BaseView<>("更新设备状态成功");
+        return new BaseView<>("更新设备运行状态成功");
     }
 
     @Override
     @ApiOperationSupport(order = 5)
+    @Operation(summary = "更新设备激活状态")
+    @PostMapping("/update/activateState")
+    public BaseView<Void> updateActivateState(DeviceActivateStateUpdateRequest request) {
+        deviceService.updateActivateState(request);
+        return new BaseView<>("更新设备激活状态成功");
+    }
+
+    @Override
+    @ApiOperationSupport(order = 6)
     @Operation(summary = "获取设备")
     @PostMapping("/get")
     public BaseView<DeviceResponse> get(@Valid @RequestBody DeviceQueryRequest request) {
@@ -94,10 +99,10 @@ public class DeviceController implements DeviceApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 6)
+    @ApiOperationSupport(order = 7)
     @Operation(summary = "获取设备列表")
     @PostMapping("/list")
-    public ListView<DeviceResponse> list(@Valid DeviceQueryRequest request) {
+    public ListView<DeviceResponse> list(@Valid @RequestBody DeviceQueryRequest request) {
         List<DeviceEntity> entities = deviceService.list(request);
         List<DeviceResponse> convert = entities.parallelStream().map(entity -> deviceService.convert(entity))
                 .collect(Collectors.toList());
@@ -105,12 +110,12 @@ public class DeviceController implements DeviceApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 7)
+    @ApiOperationSupport(order = 8)
     @Operation(summary = "获取设备分页列表")
     @PostMapping("/page")
-    public PageView<DeviceResponse> page(@Valid PageRequest<DeviceQueryRequest> request) {
+    public PageView<DeviceResponse> page(@Valid @RequestBody PageRequest<DeviceQueryRequest> request) {
         IPage<DeviceEntity> page = deviceService.page(PageHelper.toPage(new PageDTO<>(), request),
-                request.getParams());
+                Optional.ofNullable(request.getParams()).orElse(new DeviceQueryRequest()));
         List<DeviceResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> deviceService.convert(entity))
                 .collect(Collectors.toList());

@@ -5,12 +5,7 @@ import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jinelei.numbfish.device.client.domain.DeviceEntity;
-import com.jinelei.numbfish.device.dto.DeviceCreateRequest;
-import com.jinelei.numbfish.device.dto.DeviceDeleteRequest;
-import com.jinelei.numbfish.device.dto.DeviceQueryRequest;
-import com.jinelei.numbfish.device.dto.DeviceResponse;
-import com.jinelei.numbfish.device.dto.DeviceRunningStateUpdateRequest;
-import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
+import com.jinelei.numbfish.device.dto.*;
 
 @SuppressWarnings("unused")
 public interface DeviceService extends IService<DeviceEntity> {
@@ -22,6 +17,8 @@ public interface DeviceService extends IService<DeviceEntity> {
     void update(DeviceUpdateRequest request);
 
     void updateRunningState(DeviceRunningStateUpdateRequest request);
+
+    void updateActivateState(DeviceActivateStateUpdateRequest request);
 
     DeviceEntity get(DeviceQueryRequest request);
 
