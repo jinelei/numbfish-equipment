@@ -12,7 +12,7 @@ public class StructureEntity extends BaseEntity<Long> {
     protected String name;
     protected String code;
     protected Long parentId;
-    protected StructureType typeId;
+    protected StructureType type;
 
     public String getName() {
         return name;
@@ -38,12 +38,12 @@ public class StructureEntity extends BaseEntity<Long> {
         this.parentId = parentId;
     }
 
-    public StructureType getTypeId() {
-        return typeId;
+    public StructureType getType() {
+        return type;
     }
 
-    public void setTypeId(StructureType typeId) {
-        this.typeId = typeId;
+    public void setType(StructureType type) {
+        this.type = type;
     }
 
     @Override
@@ -51,12 +51,12 @@ public class StructureEntity extends BaseEntity<Long> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         StructureEntity that = (StructureEntity) o;
-        return Objects.equals(name, that.name) && Objects.equals(code, that.code) && Objects.equals(parentId, that.parentId) && typeId == that.typeId;
+        return Objects.equals(name, that.name) && Objects.equals(code, that.code) && Objects.equals(parentId, that.parentId) && type == that.type;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, code, parentId, typeId);
+        return Objects.hash(super.hashCode(), name, code, parentId, type);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class StructureEntity extends BaseEntity<Long> {
                 "name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", parentId=" + parentId +
-                ", typeId=" + typeId +
+                ", type=" + type +
                 ", id=" + id +
                 ", remark='" + remark + '\'' +
                 ", createdUserId=" + createdUserId +

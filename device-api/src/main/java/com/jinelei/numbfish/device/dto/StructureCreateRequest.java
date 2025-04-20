@@ -16,7 +16,7 @@ public class StructureCreateRequest implements Serializable {
     @Schema(description = "结构名称")
     private String name;
     @Schema(description = "结构类型")
-    private StructureType typeId;
+    private StructureType type;
     @Schema(description = "上级结构id")
     private Long parentId;
     @Schema(description = "结构描述")
@@ -46,12 +46,12 @@ public class StructureCreateRequest implements Serializable {
         this.name = name;
     }
 
-    public StructureType getTypeId() {
-        return typeId;
+    public StructureType getType() {
+        return type;
     }
 
-    public void setTypeId(StructureType typeId) {
-        this.typeId = typeId;
+    public void setType(StructureType type) {
+        this.type = type;
     }
 
     public Long getParentId() {
@@ -74,12 +74,12 @@ public class StructureCreateRequest implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         StructureCreateRequest that = (StructureCreateRequest) o;
-        return Objects.equals(id, that.id) && Objects.equals(code, that.code) && Objects.equals(name, that.name) && typeId == that.typeId && Objects.equals(parentId, that.parentId) && Objects.equals(remark, that.remark);
+        return Objects.equals(id, that.id) && Objects.equals(code, that.code) && Objects.equals(name, that.name) && type == that.type && Objects.equals(parentId, that.parentId) && Objects.equals(remark, that.remark);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, code, name, typeId, parentId, remark);
+        return Objects.hash(id, code, name, type, parentId, remark);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class StructureCreateRequest implements Serializable {
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", typeId=" + typeId +
+                ", type=" + type +
                 ", parentId=" + parentId +
                 ", remark='" + remark + '\'' +
                 '}';
