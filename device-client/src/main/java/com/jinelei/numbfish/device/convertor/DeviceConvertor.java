@@ -1,18 +1,13 @@
-package com.jinelei.numbfish.device.client.convertor;
+package com.jinelei.numbfish.device.convertor;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-import com.jinelei.numbfish.device.client.domain.DeviceEntity;
+import com.jinelei.numbfish.device.entity.DeviceEntity;
 import com.jinelei.numbfish.device.dto.DeviceCreateRequest;
 import com.jinelei.numbfish.device.dto.DeviceResponse;
 import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @SuppressWarnings("unused")
 @Mapper(componentModel = "spring")

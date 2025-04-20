@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.client.service.impl;
+package com.jinelei.numbfish.device.service.impl;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,10 +20,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jinelei.numbfish.common.exception.InvalidArgsException;
 import com.jinelei.numbfish.common.helper.Snowflake;
-import com.jinelei.numbfish.device.client.convertor.DeviceConvertor;
-import com.jinelei.numbfish.device.client.domain.DeviceEntity;
-import com.jinelei.numbfish.device.client.mapper.DeviceMapper;
-import com.jinelei.numbfish.device.client.service.DeviceService;
+import com.jinelei.numbfish.device.convertor.DeviceConvertor;
+import com.jinelei.numbfish.device.entity.DeviceEntity;
+import com.jinelei.numbfish.device.mapper.DeviceMapper;
+import com.jinelei.numbfish.device.service.DeviceService;
 
 @SuppressWarnings("unused")
 @Service

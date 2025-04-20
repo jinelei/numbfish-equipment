@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.client.configuration;
+package com.jinelei.numbfish.device.configuration;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;

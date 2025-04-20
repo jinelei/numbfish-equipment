@@ -1,7 +1,8 @@
-package com.jinelei.numbfish.device.client.domain;
+package com.jinelei.numbfish.device.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jinelei.numbfish.acquisition.enumeration.RunningState;
+import com.jinelei.numbfish.common.entity.BaseEntity;
 import com.jinelei.numbfish.device.enumeration.DeviceType;
 
 import java.time.LocalDateTime;

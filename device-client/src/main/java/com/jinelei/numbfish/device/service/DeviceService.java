@@ -1,10 +1,10 @@
-package com.jinelei.numbfish.device.client.service;
+package com.jinelei.numbfish.device.service;
 
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jinelei.numbfish.device.client.domain.DeviceEntity;
+import com.jinelei.numbfish.device.entity.DeviceEntity;
 import com.jinelei.numbfish.device.dto.*;
 
 @SuppressWarnings("unused")

@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.client.controller;
+package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
@@ -10,8 +10,8 @@ import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
 import com.jinelei.numbfish.device.api.DeviceApi;
-import com.jinelei.numbfish.device.client.domain.DeviceEntity;
-import com.jinelei.numbfish.device.client.service.DeviceService;
+import com.jinelei.numbfish.device.entity.DeviceEntity;
+import com.jinelei.numbfish.device.service.DeviceService;
 import com.jinelei.numbfish.device.dto.*;
 
 import io.swagger.v3.oas.annotations.Operation;

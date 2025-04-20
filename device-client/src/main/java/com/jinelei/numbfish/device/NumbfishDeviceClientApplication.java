@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.client;
+package com.jinelei.numbfish.device;
 
 import com.jinelei.numbfish.acquisition.configuration.annotation.EnableInfluxService;
 import com.jinelei.numbfish.common.helper.SpringHelper;
