@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @SuppressWarnings({"unused"})
 @Configuration
-@MapperScan(basePackages = "com.jinelei.numbfish.device.client.mapper")
+@MapperScan(basePackages = "com.jinelei.numbfish.device.mapper")
 public class MybatisConfiguration {
 
     @Bean

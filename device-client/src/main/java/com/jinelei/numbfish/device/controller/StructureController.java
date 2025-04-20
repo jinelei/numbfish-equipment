@@ -30,8 +30,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
-@Tag(name = "设备管理")
+@ApiSupport(order = 2)
+@Tag(name = "结构管理")
 @Validated
 @RestController
 @RequestMapping("/structure")
@@ -43,7 +43,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建设备")
+    @Operation(summary = "创建结构")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody StructureCreateRequest request) {
         structureService.create(request);
@@ -52,7 +52,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 2)
-    @Operation(summary = "删除设备")
+    @Operation(summary = "删除结构")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody StructureDeleteRequest request) {
         structureService.delete(request);
@@ -61,7 +61,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 3)
-    @Operation(summary = "更新设备")
+    @Operation(summary = "更新结构")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody StructureUpdateRequest request) {
         structureService.update(request);
@@ -70,7 +70,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 6)
-    @Operation(summary = "获取设备")
+    @Operation(summary = "获取结构")
     @PostMapping("/get")
     public BaseView<StructureResponse> get(@Valid @RequestBody StructureQueryRequest request) {
         StructureEntity entity = structureService.get(request);
@@ -80,7 +80,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 7)
-    @Operation(summary = "获取设备列表")
+    @Operation(summary = "获取结构列表")
     @PostMapping("/list")
     public ListView<StructureResponse> list(@Valid @RequestBody StructureQueryRequest request) {
         List<StructureEntity> entities = structureService.list(request);
@@ -91,7 +91,7 @@ public class StructureController implements StructureApi {
 
     @Override
     @ApiOperationSupport(order = 8)
-    @Operation(summary = "获取设备分页列表")
+    @Operation(summary = "获取结构分页列表")
     @PostMapping("/page")
     public PageView<StructureResponse> page(@Valid @RequestBody PageRequest<StructureQueryRequest> request) {
         IPage<StructureEntity> page = structureService.page(PageHelper.toPage(new PageDTO<>(), request),

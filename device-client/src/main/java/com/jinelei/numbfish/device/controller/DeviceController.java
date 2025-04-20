@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
+@ApiSupport(order = 1)
 @Tag(name = "设备管理")
 @Validated
 @RestController
