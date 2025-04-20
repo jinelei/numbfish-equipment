@@ -27,8 +27,7 @@ import com.jinelei.numbfish.device.service.DeviceService;
 
 @SuppressWarnings("unused")
 @Service
-public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, DeviceEntity>
-        implements DeviceService {
+public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, DeviceEntity> implements DeviceService {
     private static final Logger log = LoggerFactory.getLogger(DeviceServiceImpl.class);
     protected Snowflake snowflake = Snowflake.DEFAULT;
 

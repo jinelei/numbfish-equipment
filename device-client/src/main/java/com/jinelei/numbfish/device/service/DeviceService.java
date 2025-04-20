@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jinelei.numbfish.device.entity.DeviceEntity;
 import com.jinelei.numbfish.device.dto.*;
+import com.jinelei.numbfish.device.entity.DeviceEntity;
 
 @SuppressWarnings("unused")
 public interface DeviceService extends IService<DeviceEntity> {

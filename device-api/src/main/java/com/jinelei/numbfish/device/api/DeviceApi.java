@@ -4,8 +4,8 @@ import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.dto.*;
 
+import com.jinelei.numbfish.device.dto.*;
 import jakarta.validation.Valid;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -39,7 +39,7 @@ public interface DeviceApi {
      * @param request 设备请求对象
      * @return 设备响应对象
      */
-    @PostMapping("/device/udpate")
+    @PostMapping("/device/update")
     BaseView<Void> update(@Valid DeviceUpdateRequest request);
 
     /**

@@ -10,9 +10,9 @@ import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
 import com.jinelei.numbfish.device.api.DeviceApi;
+import com.jinelei.numbfish.device.dto.*;
 import com.jinelei.numbfish.device.entity.DeviceEntity;
 import com.jinelei.numbfish.device.service.DeviceService;
-import com.jinelei.numbfish.device.dto.*;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
