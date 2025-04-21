@@ -26,9 +26,9 @@ import java.util.Optional;
 
 @SuppressWarnings("unused")
 @Service
-public class AlarmRuleServiceImpl extends ServiceImpl<AlarmRuleMapper, AlarmRuleEntity>
+public class AlarmHistoryServiceImpl extends ServiceImpl<AlarmRuleMapper, AlarmRuleEntity>
         implements AlarmRuleService {
-    private static final Logger log = LoggerFactory.getLogger(AlarmRuleServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(AlarmHistoryServiceImpl.class);
     protected Snowflake snowflake = Snowflake.DEFAULT;
 
     @Autowired
@@ -37,19 +37,19 @@ public class AlarmRuleServiceImpl extends ServiceImpl<AlarmRuleMapper, AlarmRule
     @Override
     public void create(AlarmRuleCreateRequest request) {
         final AlarmRuleEntity entity = structureConvertor.entityFromCreateRequest(request);
-        Optional.ofNullable(entity).orElseThrow(() -> new InvalidArgsException("报警规则信息不合法"));
+        Optional.ofNullable(entity).orElseThrow(() -> new InvalidArgsException("报警历史信息不合法"));
         int inserted = baseMapper.insert(entity);
-        Assert.state(inserted == 1, "报警规则创建失败");
+        Assert.state(inserted == 1, "报警历史创建失败");
     }
 
     @Override
     public void delete(AlarmRuleDeleteRequest request) {
         if (Objects.nonNull(request.getId())) {
             int deleted = baseMapper.deleteById(request.getId());
-            Assert.state(deleted == 1, "报警规则删除失败");
+            Assert.state(deleted == 1, "报警历史删除失败");
         } else if (!CollectionUtils.isEmpty(request.getIds())) {
             int deleted = baseMapper.deleteByIds(request.getIds());
-            Assert.state(deleted == request.getIds().size(), "报警规则删除失败");
+            Assert.state(deleted == request.getIds().size(), "报警历史删除失败");
         }
     }
 
@@ -61,7 +61,7 @@ public class AlarmRuleServiceImpl extends ServiceImpl<AlarmRuleMapper, AlarmRule
         wrapper.set(AlarmRuleEntity::getCode, request.getCode());
         wrapper.set(AlarmRuleEntity::getRemark, request.getRemark());
         int updated = baseMapper.update(wrapper);
-        Assert.state(updated == 1, "报警规则更新失败");
+        Assert.state(updated == 1, "报警历史更新失败");
     }
 
     @Override

@@ -14,54 +14,54 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface AlarmRuleApi {
 
     /**
-     * 创建设备
+     * 创建报警规则
      *
-     * @param request 设备请求对象
-     * @return 设备响应对象
+     * @param request 报警规则请求对象
+     * @return 报警规则响应对象
      */
     @PostMapping("/alarmRule/create")
     BaseView<Void> create(@Valid AlarmRuleCreateRequest request);
 
     /**
-     * 删除设备
+     * 删除报警规则
      *
-     * @param request 设备请求对象
+     * @param request 报警规则请求对象
      */
     @PostMapping("/alarmRule/delete")
     BaseView<Void> delete(@Valid AlarmRuleDeleteRequest request);
 
     /**
-     * 更新设备
+     * 更新报警规则
      *
-     * @param request 设备请求对象
-     * @return 设备响应对象
+     * @param request 报警规则请求对象
+     * @return 报警规则响应对象
      */
     @PostMapping("/alarmRule/update")
     BaseView<Void> update(@Valid AlarmRuleUpdateRequest request);
 
     /**
-     * 查询设备详情
+     * 查询报警规则详情
      *
-     * @param request 设备请求对象
-     * @return 设备响应对象
+     * @param request 报警规则请求对象
+     * @return 报警规则响应对象
      */
     @PostMapping("/alarmRule/get")
     BaseView<AlarmRuleResponse> get(@Valid AlarmRuleQueryRequest request);
 
     /**
-     * 查询设备列表
+     * 查询报警规则列表
      *
-     * @param request 设备请求对象
-     * @return 设备响应对象列表
+     * @param request 报警规则请求对象
+     * @return 报警规则响应对象列表
      */
     @PostMapping("/alarmRule/list")
     ListView<AlarmRuleResponse> list(@Valid AlarmRuleQueryRequest request);
 
     /**
-     * 查询设备分页
+     * 查询报警规则分页
      *
-     * @param request 设备请求对象
-     * @return 设备响应对象列表
+     * @param request 报警规则请求对象
+     * @return 报警规则响应对象列表
      */
     @PostMapping("/alarmRule/page")
     PageView<AlarmRuleResponse> page(@Valid PageRequest<AlarmRuleQueryRequest> request);

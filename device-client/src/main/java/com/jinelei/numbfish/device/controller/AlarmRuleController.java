@@ -39,14 +39,14 @@ public class AlarmRuleController implements AlarmRuleApi {
     private final Logger log = LoggerFactory.getLogger(AlarmRuleController.class);
 
     @Autowired
-    private AlarmRuleService dictService;
+    private AlarmRuleService alarmRuleService;
 
     @Override
     @ApiOperationSupport(order = 1)
     @Operation(summary = "创建报警规则")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody AlarmRuleCreateRequest request) {
-        dictService.create(request);
+        alarmRuleService.create(request);
         return new BaseView<>("创建成功");
     }
 
@@ -55,7 +55,7 @@ public class AlarmRuleController implements AlarmRuleApi {
     @Operation(summary = "删除报警规则")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody AlarmRuleDeleteRequest request) {
-        dictService.delete(request);
+        alarmRuleService.delete(request);
         return new BaseView<>("删除成功");
     }
 
@@ -64,7 +64,7 @@ public class AlarmRuleController implements AlarmRuleApi {
     @Operation(summary = "更新报警规则")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody AlarmRuleUpdateRequest request) {
-        dictService.update(request);
+        alarmRuleService.update(request);
         return new BaseView<>("更新成功");
     }
 
@@ -73,8 +73,8 @@ public class AlarmRuleController implements AlarmRuleApi {
     @Operation(summary = "获取报警规则")
     @PostMapping("/get")
     public BaseView<AlarmRuleResponse> get(@Valid @RequestBody AlarmRuleQueryRequest request) {
-        AlarmRuleEntity entity = dictService.get(request);
-        AlarmRuleResponse convert = dictService.convert(entity);
+        AlarmRuleEntity entity = alarmRuleService.get(request);
+        AlarmRuleResponse convert = alarmRuleService.convert(entity);
         return new BaseView<>(convert);
     }
 
@@ -83,8 +83,8 @@ public class AlarmRuleController implements AlarmRuleApi {
     @Operation(summary = "获取报警规则列表")
     @PostMapping("/list")
     public ListView<AlarmRuleResponse> list(@Valid @RequestBody AlarmRuleQueryRequest request) {
-        List<AlarmRuleEntity> entities = dictService.list(request);
-        List<AlarmRuleResponse> convert = entities.parallelStream().map(entity -> dictService.convert(entity))
+        List<AlarmRuleEntity> entities = alarmRuleService.list(request);
+        List<AlarmRuleResponse> convert = entities.parallelStream().map(entity -> alarmRuleService.convert(entity))
                 .collect(Collectors.toList());
         return new ListView<>(convert);
     }
@@ -94,10 +94,10 @@ public class AlarmRuleController implements AlarmRuleApi {
     @Operation(summary = "获取报警规则分页列表")
     @PostMapping("/page")
     public PageView<AlarmRuleResponse> page(@Valid @RequestBody PageRequest<AlarmRuleQueryRequest> request) {
-        IPage<AlarmRuleEntity> page = dictService.page(PageHelper.toPage(new PageDTO<>(), request),
+        IPage<AlarmRuleEntity> page = alarmRuleService.page(PageHelper.toPage(new PageDTO<>(), request),
                 Optional.ofNullable(request.getParams()).orElse(new AlarmRuleQueryRequest()));
         List<AlarmRuleResponse> collect = page.getRecords().parallelStream()
-                .map(entity -> dictService.convert(entity))
+                .map(entity -> alarmRuleService.convert(entity))
                 .collect(Collectors.toList());
         return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
     }
