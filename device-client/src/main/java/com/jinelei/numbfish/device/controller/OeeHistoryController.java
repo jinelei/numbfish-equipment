@@ -10,7 +10,9 @@ import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
 import com.jinelei.numbfish.device.api.AlarmHistoryApi;
-import com.jinelei.numbfish.device.dto.*;
+import com.jinelei.numbfish.device.dto.AlarmHistoryDeleteRequest;
+import com.jinelei.numbfish.device.dto.AlarmHistoryQueryRequest;
+import com.jinelei.numbfish.device.dto.AlarmHistoryResponse;
 import com.jinelei.numbfish.device.entity.AlarmHistoryEntity;
 import com.jinelei.numbfish.device.service.AlarmHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -31,19 +33,19 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
 @ApiSupport(order = 3)
-@Tag(name = "报警历史管理")
+@Tag(name = "Oee历史管理")
 @Validated
 @RestController
-@RequestMapping("/alarmHistory")
-public class AlarmHistoryController implements AlarmHistoryApi {
-    private final Logger log = LoggerFactory.getLogger(AlarmHistoryController.class);
+@RequestMapping("/oeeHistory")
+public class OeeHistoryController implements AlarmHistoryApi {
+    private final Logger log = LoggerFactory.getLogger(OeeHistoryController.class);
 
     @Autowired
     private AlarmHistoryService alarmHistoryService;
 
     @Override
     @ApiOperationSupport(order = 1)
-    @Operation(summary = "删除报警历史")
+    @Operation(summary = "删除Oee历史")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody AlarmHistoryDeleteRequest request) {
         alarmHistoryService.delete(request);
@@ -52,7 +54,7 @@ public class AlarmHistoryController implements AlarmHistoryApi {
 
     @Override
     @ApiOperationSupport(order = 2)
-    @Operation(summary = "获取报警历史")
+    @Operation(summary = "获取Oee历史")
     @PostMapping("/get")
     public BaseView<AlarmHistoryResponse> get(@Valid @RequestBody AlarmHistoryQueryRequest request) {
         AlarmHistoryEntity entity = alarmHistoryService.get(request);
@@ -62,7 +64,7 @@ public class AlarmHistoryController implements AlarmHistoryApi {
 
     @Override
     @ApiOperationSupport(order = 3)
-    @Operation(summary = "获取报警历史列表")
+    @Operation(summary = "获取Oee历史列表")
     @PostMapping("/list")
     public ListView<AlarmHistoryResponse> list(@Valid @RequestBody AlarmHistoryQueryRequest request) {
         List<AlarmHistoryEntity> entities = alarmHistoryService.list(request);
@@ -73,7 +75,7 @@ public class AlarmHistoryController implements AlarmHistoryApi {
 
     @Override
     @ApiOperationSupport(order = 4)
-    @Operation(summary = "获取报警历史分页列表")
+    @Operation(summary = "获取Oee历史分页列表")
     @PostMapping("/page")
     public PageView<AlarmHistoryResponse> page(@Valid @RequestBody PageRequest<AlarmHistoryQueryRequest> request) {
         IPage<AlarmHistoryEntity> page = alarmHistoryService.page(PageHelper.toPage(new PageDTO<>(), request),
