@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @SuppressWarnings("unused")
 @FeignClient(name = "device-service", url = "${device.service.url}")
-public interface StructureApi {
+public interface AlarmRuleApi {
 
     /**
      * 创建设备
@@ -19,16 +19,16 @@ public interface StructureApi {
      * @param request 设备请求对象
      * @return 设备响应对象
      */
-    @PostMapping("/structure/create")
-    BaseView<Void> create(@Valid StructureCreateRequest request);
+    @PostMapping("/alarmRule/create")
+    BaseView<Void> create(@Valid AlarmRuleCreateRequest request);
 
     /**
      * 删除设备
      *
      * @param request 设备请求对象
      */
-    @PostMapping("/structure/delete")
-    BaseView<Void> delete(@Valid StructureDeleteRequest request);
+    @PostMapping("/alarmRule/delete")
+    BaseView<Void> delete(@Valid AlarmRuleDeleteRequest request);
 
     /**
      * 更新设备
@@ -36,8 +36,8 @@ public interface StructureApi {
      * @param request 设备请求对象
      * @return 设备响应对象
      */
-    @PostMapping("/structure/update")
-    BaseView<Void> update(@Valid StructureUpdateRequest request);
+    @PostMapping("/alarmRule/update")
+    BaseView<Void> update(@Valid AlarmRuleUpdateRequest request);
 
     /**
      * 查询设备详情
@@ -45,8 +45,8 @@ public interface StructureApi {
      * @param request 设备请求对象
      * @return 设备响应对象
      */
-    @PostMapping("/structure/get")
-    BaseView<StructureResponse> get(@Valid StructureQueryRequest request);
+    @PostMapping("/alarmRule/get")
+    BaseView<AlarmRuleResponse> get(@Valid AlarmRuleQueryRequest request);
 
     /**
      * 查询设备列表
@@ -54,8 +54,8 @@ public interface StructureApi {
      * @param request 设备请求对象
      * @return 设备响应对象列表
      */
-    @PostMapping("/structure/list")
-    ListView<StructureResponse> list(@Valid StructureQueryRequest request);
+    @PostMapping("/alarmRule/list")
+    ListView<AlarmRuleResponse> list(@Valid AlarmRuleQueryRequest request);
 
     /**
      * 查询设备分页
@@ -63,7 +63,7 @@ public interface StructureApi {
      * @param request 设备请求对象
      * @return 设备响应对象列表
      */
-    @PostMapping("/structure/page")
-    PageView<StructureResponse> page(@Valid PageRequest<StructureQueryRequest> request);
+    @PostMapping("/alarmRule/page")
+    PageView<AlarmRuleResponse> page(@Valid PageRequest<AlarmRuleQueryRequest> request);
 
 }
