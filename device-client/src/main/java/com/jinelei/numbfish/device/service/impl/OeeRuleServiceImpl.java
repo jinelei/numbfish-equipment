@@ -57,9 +57,6 @@ public class OeeRuleServiceImpl extends ServiceImpl<OeeRuleMapper, OeeRuleEntity
     public void update(@Validated OeeRuleUpdateRequest request) {
         LambdaUpdateWrapper<OeeRuleEntity> wrapper = Wrappers.lambdaUpdate(OeeRuleEntity.class);
         wrapper.eq(OeeRuleEntity::getId, request.getId());
-        wrapper.set(OeeRuleEntity::getName, request.getName());
-        wrapper.set(OeeRuleEntity::getCode, request.getCode());
-        wrapper.set(OeeRuleEntity::getRemark, request.getRemark());
         int updated = baseMapper.update(wrapper);
         Assert.state(updated == 1, "Oee规则更新失败");
     }
@@ -68,8 +65,6 @@ public class OeeRuleServiceImpl extends ServiceImpl<OeeRuleMapper, OeeRuleEntity
     public OeeRuleEntity get(OeeRuleQueryRequest request) {
         LambdaQueryWrapper<OeeRuleEntity> wrapper = Wrappers.lambdaQuery(OeeRuleEntity.class);
         wrapper.eq(Objects.nonNull(request.getId()), OeeRuleEntity::getId, request.getId());
-        wrapper.eq(Objects.nonNull(request.getName()), OeeRuleEntity::getName, request.getName());
-        wrapper.eq(Objects.nonNull(request.getCode()), OeeRuleEntity::getCode, request.getCode());
         return baseMapper.selectOne(wrapper);
     }
 
@@ -77,8 +72,6 @@ public class OeeRuleServiceImpl extends ServiceImpl<OeeRuleMapper, OeeRuleEntity
     public List<OeeRuleEntity> list(OeeRuleQueryRequest request) {
         LambdaQueryWrapper<OeeRuleEntity> wrapper = Wrappers.lambdaQuery(OeeRuleEntity.class);
         wrapper.eq(Objects.nonNull(request.getId()), OeeRuleEntity::getId, request.getId());
-        wrapper.eq(Objects.nonNull(request.getName()), OeeRuleEntity::getName, request.getName());
-        wrapper.eq(Objects.nonNull(request.getCode()), OeeRuleEntity::getCode, request.getCode());
         return baseMapper.selectList(wrapper);
     }
 
@@ -86,8 +79,6 @@ public class OeeRuleServiceImpl extends ServiceImpl<OeeRuleMapper, OeeRuleEntity
     public IPage<OeeRuleEntity> page(IPage<OeeRuleEntity> page, OeeRuleQueryRequest request) {
         LambdaQueryWrapper<OeeRuleEntity> wrapper = Wrappers.lambdaQuery(OeeRuleEntity.class);
         wrapper.eq(Objects.nonNull(request.getId()), OeeRuleEntity::getId, request.getId());
-        wrapper.eq(Objects.nonNull(request.getName()), OeeRuleEntity::getName, request.getName());
-        wrapper.eq(Objects.nonNull(request.getCode()), OeeRuleEntity::getCode, request.getCode());
         return baseMapper.selectPage(page, wrapper);
     }
 
