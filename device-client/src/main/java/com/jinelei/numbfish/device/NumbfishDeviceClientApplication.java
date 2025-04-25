@@ -22,7 +22,6 @@ public class NumbfishDeviceClientApplication {
 
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext run = SpringApplication.run(NumbfishDeviceClientApplication.class, args);
-        Environment env = run.getEnvironment();
         log.info("""
                         
                         ----------------------------------------------------------
@@ -35,12 +34,12 @@ public class NumbfishDeviceClientApplication {
                         \t\
                         Doc: \t\thttp://{}:{}/doc.html
                         ----------------------------------------------------------""",
-                env.getProperty("spring.application.name"),
-                env.getProperty("server.port"),
+                SpringHelper.getProperty("spring.application.name"),
+                SpringHelper.getProperty("server.port"),
                 InetAddress.getLocalHost().getHostAddress(),
-                env.getProperty("server.port"),
+                SpringHelper.getProperty("server.port"),
                 InetAddress.getLocalHost().getHostAddress(),
-                env.getProperty("server.port"));
+                SpringHelper.getProperty("server.port"));
     }
 
 }
