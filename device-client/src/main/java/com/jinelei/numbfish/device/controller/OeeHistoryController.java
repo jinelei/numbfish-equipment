@@ -2,21 +2,17 @@ package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.helper.PageHelper;
 import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.api.AlarmHistoryApi;
-import com.jinelei.numbfish.device.dto.AlarmHistoryDeleteRequest;
-import com.jinelei.numbfish.device.dto.AlarmHistoryQueryRequest;
-import com.jinelei.numbfish.device.dto.AlarmHistoryResponse;
-import com.jinelei.numbfish.device.entity.AlarmHistoryEntity;
-import com.jinelei.numbfish.device.service.AlarmHistoryService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import com.jinelei.numbfish.device.api.OeeHistoryApi;
+import com.jinelei.numbfish.device.dto.OeeHistoryDeleteRequest;
+import com.jinelei.numbfish.device.dto.OeeHistoryQueryRequest;
+import com.jinelei.numbfish.device.dto.OeeHistoryResponse;
+import com.jinelei.numbfish.device.entity.OeeHistoryEntity;
+import com.jinelei.numbfish.device.service.OeeHistoryService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,55 +28,45 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
-@Tag(name = "Oee历史管理")
 @Validated
 @RestController
 @RequestMapping("/oeeHistory")
-public class OeeHistoryController implements AlarmHistoryApi {
+public class OeeHistoryController implements OeeHistoryApi {
     private final Logger log = LoggerFactory.getLogger(OeeHistoryController.class);
 
     @Autowired
-    private AlarmHistoryService alarmHistoryService;
+    private OeeHistoryService alarmHistoryService;
 
     @Override
-    @ApiOperationSupport(order = 1)
-    @Operation(summary = "删除Oee历史")
     @PostMapping("/delete")
-    public BaseView<Void> delete(@Valid @RequestBody AlarmHistoryDeleteRequest request) {
+    public BaseView<Void> delete(@Valid @RequestBody OeeHistoryDeleteRequest request) {
         alarmHistoryService.delete(request);
         return new BaseView<>("删除成功");
     }
 
     @Override
-    @ApiOperationSupport(order = 2)
-    @Operation(summary = "获取Oee历史")
     @PostMapping("/get")
-    public BaseView<AlarmHistoryResponse> get(@Valid @RequestBody AlarmHistoryQueryRequest request) {
-        AlarmHistoryEntity entity = alarmHistoryService.get(request);
-        AlarmHistoryResponse convert = alarmHistoryService.convert(entity);
+    public BaseView<OeeHistoryResponse> get(@Valid @RequestBody OeeHistoryQueryRequest request) {
+        OeeHistoryEntity entity = alarmHistoryService.get(request);
+        OeeHistoryResponse convert = alarmHistoryService.convert(entity);
         return new BaseView<>(convert);
     }
 
     @Override
-    @ApiOperationSupport(order = 3)
-    @Operation(summary = "获取Oee历史列表")
     @PostMapping("/list")
-    public ListView<AlarmHistoryResponse> list(@Valid @RequestBody AlarmHistoryQueryRequest request) {
-        List<AlarmHistoryEntity> entities = alarmHistoryService.list(request);
-        List<AlarmHistoryResponse> convert = entities.parallelStream().map(entity -> alarmHistoryService.convert(entity))
+    public ListView<OeeHistoryResponse> list(@Valid @RequestBody OeeHistoryQueryRequest request) {
+        List<OeeHistoryEntity> entities = alarmHistoryService.list(request);
+        List<OeeHistoryResponse> convert = entities.parallelStream().map(entity -> alarmHistoryService.convert(entity))
                 .collect(Collectors.toList());
         return new ListView<>(convert);
     }
 
     @Override
-    @ApiOperationSupport(order = 4)
-    @Operation(summary = "获取Oee历史分页列表")
     @PostMapping("/page")
-    public PageView<AlarmHistoryResponse> page(@Valid @RequestBody PageRequest<AlarmHistoryQueryRequest> request) {
-        IPage<AlarmHistoryEntity> page = alarmHistoryService.page(PageHelper.toPage(new PageDTO<>(), request),
-                Optional.ofNullable(request.getParams()).orElse(new AlarmHistoryQueryRequest()));
-        List<AlarmHistoryResponse> collect = page.getRecords().parallelStream()
+    public PageView<OeeHistoryResponse> page(@Valid @RequestBody PageRequest<OeeHistoryQueryRequest> request) {
+        IPage<OeeHistoryEntity> page = alarmHistoryService.page(PageHelper.toPage(new PageDTO<>(), request),
+                Optional.ofNullable(request.getParams()).orElse(new OeeHistoryQueryRequest()));
+        List<OeeHistoryResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> alarmHistoryService.convert(entity))
                 .collect(Collectors.toList());
         return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());

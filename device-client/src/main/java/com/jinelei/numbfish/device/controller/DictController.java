@@ -2,8 +2,6 @@ package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.helper.PageHelper;
 import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
@@ -13,8 +11,6 @@ import com.jinelei.numbfish.device.api.DictApi;
 import com.jinelei.numbfish.device.dto.*;
 import com.jinelei.numbfish.device.entity.DictEntity;
 import com.jinelei.numbfish.device.service.DictService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +26,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
-@Tag(name = "字典管理")
 @Validated
 @RestController
 @RequestMapping("/dict")
@@ -42,8 +36,6 @@ public class DictController implements DictApi {
     private DictService dictService;
 
     @Override
-    @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建字典")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody DictCreateRequest request) {
         dictService.create(request);
@@ -51,8 +43,6 @@ public class DictController implements DictApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 2)
-    @Operation(summary = "删除字典")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody DictDeleteRequest request) {
         dictService.delete(request);
@@ -60,8 +50,6 @@ public class DictController implements DictApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 3)
-    @Operation(summary = "更新字典")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody DictUpdateRequest request) {
         dictService.update(request);
@@ -69,8 +57,6 @@ public class DictController implements DictApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 6)
-    @Operation(summary = "获取字典")
     @PostMapping("/get")
     public BaseView<DictResponse> get(@Valid @RequestBody DictQueryRequest request) {
         DictEntity entity = dictService.get(request);
@@ -79,8 +65,6 @@ public class DictController implements DictApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 7)
-    @Operation(summary = "获取字典列表")
     @PostMapping("/list")
     public ListView<DictResponse> list(@Valid @RequestBody DictQueryRequest request) {
         List<DictEntity> entities = dictService.list(request);
@@ -90,8 +74,6 @@ public class DictController implements DictApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 8)
-    @Operation(summary = "获取字典分页列表")
     @PostMapping("/page")
     public PageView<DictResponse> page(@Valid @RequestBody PageRequest<DictQueryRequest> request) {
         IPage<DictEntity> page = dictService.page(PageHelper.toPage(new PageDTO<>(), request),

@@ -2,8 +2,6 @@ package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.helper.PageHelper;
 import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
@@ -13,8 +11,6 @@ import com.jinelei.numbfish.device.api.AlarmRuleApi;
 import com.jinelei.numbfish.device.dto.*;
 import com.jinelei.numbfish.device.entity.AlarmRuleEntity;
 import com.jinelei.numbfish.device.service.AlarmRuleService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +26,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
-@Tag(name = "报警规则管理")
 @Validated
 @RestController
 @RequestMapping("/alarmRule")
@@ -42,8 +36,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     private AlarmRuleService alarmRuleService;
 
     @Override
-    @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建报警规则")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody AlarmRuleCreateRequest request) {
         alarmRuleService.create(request);
@@ -51,8 +43,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 2)
-    @Operation(summary = "删除报警规则")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody AlarmRuleDeleteRequest request) {
         alarmRuleService.delete(request);
@@ -60,8 +50,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 3)
-    @Operation(summary = "更新报警规则")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody AlarmRuleUpdateRequest request) {
         alarmRuleService.update(request);
@@ -69,8 +57,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 6)
-    @Operation(summary = "获取报警规则")
     @PostMapping("/get")
     public BaseView<AlarmRuleResponse> get(@Valid @RequestBody AlarmRuleQueryRequest request) {
         AlarmRuleEntity entity = alarmRuleService.get(request);
@@ -79,8 +65,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 7)
-    @Operation(summary = "获取报警规则列表")
     @PostMapping("/list")
     public ListView<AlarmRuleResponse> list(@Valid @RequestBody AlarmRuleQueryRequest request) {
         List<AlarmRuleEntity> entities = alarmRuleService.list(request);
@@ -90,8 +74,6 @@ public class AlarmRuleController implements AlarmRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 8)
-    @Operation(summary = "获取报警规则分页列表")
     @PostMapping("/page")
     public PageView<AlarmRuleResponse> page(@Valid @RequestBody PageRequest<AlarmRuleQueryRequest> request) {
         IPage<AlarmRuleEntity> page = alarmRuleService.page(PageHelper.toPage(new PageDTO<>(), request),

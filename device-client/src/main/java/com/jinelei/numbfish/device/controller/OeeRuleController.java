@@ -2,8 +2,6 @@ package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.helper.PageHelper;
 import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
@@ -13,8 +11,6 @@ import com.jinelei.numbfish.device.api.OeeRuleApi;
 import com.jinelei.numbfish.device.dto.*;
 import com.jinelei.numbfish.device.entity.OeeRuleEntity;
 import com.jinelei.numbfish.device.service.OeeRuleService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +26,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 3)
-@Tag(name = "Oee规则管理")
 @Validated
 @RestController
 @RequestMapping("/oeeRule")
@@ -42,8 +36,6 @@ public class OeeRuleController implements OeeRuleApi {
     private OeeRuleService alarmRuleService;
 
     @Override
-    @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建Oee规则")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody OeeRuleCreateRequest request) {
         alarmRuleService.create(request);
@@ -51,8 +43,6 @@ public class OeeRuleController implements OeeRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 2)
-    @Operation(summary = "删除Oee规则")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody OeeRuleDeleteRequest request) {
         alarmRuleService.delete(request);
@@ -60,8 +50,6 @@ public class OeeRuleController implements OeeRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 3)
-    @Operation(summary = "更新Oee规则")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody OeeRuleUpdateRequest request) {
         alarmRuleService.update(request);
@@ -69,8 +57,6 @@ public class OeeRuleController implements OeeRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 6)
-    @Operation(summary = "获取Oee规则")
     @PostMapping("/get")
     public BaseView<OeeRuleResponse> get(@Valid @RequestBody OeeRuleQueryRequest request) {
         OeeRuleEntity entity = alarmRuleService.get(request);
@@ -79,8 +65,6 @@ public class OeeRuleController implements OeeRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 7)
-    @Operation(summary = "获取Oee规则列表")
     @PostMapping("/list")
     public ListView<OeeRuleResponse> list(@Valid @RequestBody OeeRuleQueryRequest request) {
         List<OeeRuleEntity> entities = alarmRuleService.list(request);
@@ -90,8 +74,6 @@ public class OeeRuleController implements OeeRuleApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 8)
-    @Operation(summary = "获取Oee规则分页列表")
     @PostMapping("/page")
     public PageView<OeeRuleResponse> page(@Valid @RequestBody PageRequest<OeeRuleQueryRequest> request) {
         IPage<OeeRuleEntity> page = alarmRuleService.page(PageHelper.toPage(new PageDTO<>(), request),

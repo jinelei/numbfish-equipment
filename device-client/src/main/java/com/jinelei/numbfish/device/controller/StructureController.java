@@ -2,8 +2,6 @@ package com.jinelei.numbfish.device.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jinelei.numbfish.common.helper.PageHelper;
 import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
@@ -13,8 +11,6 @@ import com.jinelei.numbfish.device.api.StructureApi;
 import com.jinelei.numbfish.device.dto.*;
 import com.jinelei.numbfish.device.entity.StructureEntity;
 import com.jinelei.numbfish.device.service.StructureService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +26,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-@ApiSupport(order = 2)
-@Tag(name = "结构管理")
 @Validated
 @RestController
 @RequestMapping("/structure")
@@ -42,8 +36,6 @@ public class StructureController implements StructureApi {
     private StructureService structureService;
 
     @Override
-    @ApiOperationSupport(order = 1)
-    @Operation(summary = "创建结构")
     @PostMapping("/create")
     public BaseView<Void> create(@Valid @RequestBody StructureCreateRequest request) {
         structureService.create(request);
@@ -51,8 +43,6 @@ public class StructureController implements StructureApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 2)
-    @Operation(summary = "删除结构")
     @PostMapping("/delete")
     public BaseView<Void> delete(@Valid @RequestBody StructureDeleteRequest request) {
         structureService.delete(request);
@@ -60,8 +50,6 @@ public class StructureController implements StructureApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 3)
-    @Operation(summary = "更新结构")
     @PostMapping("/update")
     public BaseView<Void> update(@Valid @RequestBody StructureUpdateRequest request) {
         structureService.update(request);
@@ -69,8 +57,6 @@ public class StructureController implements StructureApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 6)
-    @Operation(summary = "获取结构")
     @PostMapping("/get")
     public BaseView<StructureResponse> get(@Valid @RequestBody StructureQueryRequest request) {
         StructureEntity entity = structureService.get(request);
@@ -79,8 +65,6 @@ public class StructureController implements StructureApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 7)
-    @Operation(summary = "获取结构列表")
     @PostMapping("/list")
     public ListView<StructureResponse> list(@Valid @RequestBody StructureQueryRequest request) {
         List<StructureEntity> entities = structureService.list(request);
@@ -90,8 +74,6 @@ public class StructureController implements StructureApi {
     }
 
     @Override
-    @ApiOperationSupport(order = 8)
-    @Operation(summary = "获取结构分页列表")
     @PostMapping("/page")
     public PageView<StructureResponse> page(@Valid @RequestBody PageRequest<StructureQueryRequest> request) {
         IPage<StructureEntity> page = structureService.page(PageHelper.toPage(new PageDTO<>(), request),
