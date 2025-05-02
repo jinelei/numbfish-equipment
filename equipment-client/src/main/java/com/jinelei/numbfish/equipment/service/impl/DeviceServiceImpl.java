@@ -1,10 +1,10 @@
-package com.jinelei.numbfish.device.service.impl;
+package com.jinelei.numbfish.equipment.service.impl;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import com.jinelei.numbfish.device.dto.*;
+import com.jinelei.numbfish.equipment.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jinelei.numbfish.common.exception.InvalidArgsException;
 import com.jinelei.numbfish.common.helper.Snowflake;
-import com.jinelei.numbfish.device.convertor.DeviceConvertor;
-import com.jinelei.numbfish.device.entity.DeviceEntity;
-import com.jinelei.numbfish.device.mapper.DeviceMapper;
-import com.jinelei.numbfish.device.service.DeviceService;
+import com.jinelei.numbfish.equipment.convertor.DeviceConvertor;
+import com.jinelei.numbfish.equipment.entity.DeviceEntity;
+import com.jinelei.numbfish.equipment.mapper.DeviceMapper;
+import com.jinelei.numbfish.equipment.service.DeviceService;
 
 @SuppressWarnings("unused")
 @Service

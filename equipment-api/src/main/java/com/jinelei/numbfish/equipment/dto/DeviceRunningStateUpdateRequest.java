@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.dto;
+package com.jinelei.numbfish.equipment.dto;
 
 import com.jinelei.numbfish.acquisition.enumeration.RunningState;
 

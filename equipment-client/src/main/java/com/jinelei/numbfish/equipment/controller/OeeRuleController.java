@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.controller;
+package com.jinelei.numbfish.equipment.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
@@ -7,10 +7,10 @@ import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.api.OeeRuleApi;
-import com.jinelei.numbfish.device.dto.*;
-import com.jinelei.numbfish.device.entity.OeeRuleEntity;
-import com.jinelei.numbfish.device.service.OeeRuleService;
+import com.jinelei.numbfish.equipment.api.OeeRuleApi;
+import com.jinelei.numbfish.equipment.dto.*;
+import com.jinelei.numbfish.equipment.entity.OeeRuleEntity;
+import com.jinelei.numbfish.equipment.service.OeeRuleService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

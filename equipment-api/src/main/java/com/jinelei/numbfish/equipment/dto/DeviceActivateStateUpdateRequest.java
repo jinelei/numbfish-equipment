@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.dto;
+package com.jinelei.numbfish.equipment.dto;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

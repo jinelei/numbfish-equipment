@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.configuration;
+package com.jinelei.numbfish.equipment.configuration;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

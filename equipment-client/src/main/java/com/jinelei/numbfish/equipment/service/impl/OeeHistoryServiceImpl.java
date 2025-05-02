@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.service.impl;
+package com.jinelei.numbfish.equipment.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -6,11 +6,11 @@ import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jinelei.numbfish.common.helper.Snowflake;
-import com.jinelei.numbfish.device.convertor.OeeHistoryConvertor;
-import com.jinelei.numbfish.device.dto.*;
-import com.jinelei.numbfish.device.entity.OeeHistoryEntity;
-import com.jinelei.numbfish.device.mapper.OeeHistoryMapper;
-import com.jinelei.numbfish.device.service.OeeHistoryService;
+import com.jinelei.numbfish.equipment.convertor.OeeHistoryConvertor;
+import com.jinelei.numbfish.equipment.dto.*;
+import com.jinelei.numbfish.equipment.entity.OeeHistoryEntity;
+import com.jinelei.numbfish.equipment.mapper.OeeHistoryMapper;
+import com.jinelei.numbfish.equipment.service.OeeHistoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

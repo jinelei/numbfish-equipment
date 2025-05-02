@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.enumeration;
+package com.jinelei.numbfish.equipment.enumeration;
 
 /**
  * @version v1.0.0

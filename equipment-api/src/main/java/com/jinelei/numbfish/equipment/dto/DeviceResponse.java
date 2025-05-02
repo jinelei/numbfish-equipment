@@ -1,9 +1,9 @@
-package com.jinelei.numbfish.device.dto;
+package com.jinelei.numbfish.equipment.dto;
 
 import java.io.Serializable;
 
 import com.jinelei.numbfish.acquisition.enumeration.RunningState;
-import com.jinelei.numbfish.device.enumeration.DeviceType;
+import com.jinelei.numbfish.equipment.enumeration.DeviceType;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

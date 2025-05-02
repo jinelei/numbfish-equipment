@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.entity;
+package com.jinelei.numbfish.equipment.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jinelei.numbfish.common.entity.BaseEntity;

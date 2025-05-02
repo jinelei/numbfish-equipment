@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.configuration;
+package com.jinelei.numbfish.equipment.configuration;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @SuppressWarnings({"unused"})
 @Configuration
-@MapperScan(basePackages = "com.jinelei.numbfish.device.mapper")
+@MapperScan(basePackages = "com.jinelei.numbfish.equipment.mapper")
 public class MybatisConfiguration {
 
     @Bean

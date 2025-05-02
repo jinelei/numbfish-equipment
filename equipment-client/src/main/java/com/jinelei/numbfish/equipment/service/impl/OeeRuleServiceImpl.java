@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.service.impl;
+package com.jinelei.numbfish.equipment.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -8,11 +8,11 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jinelei.numbfish.common.exception.InvalidArgsException;
 import com.jinelei.numbfish.common.helper.Snowflake;
-import com.jinelei.numbfish.device.convertor.OeeRuleConvertor;
-import com.jinelei.numbfish.device.dto.*;
-import com.jinelei.numbfish.device.entity.OeeRuleEntity;
-import com.jinelei.numbfish.device.mapper.OeeRuleMapper;
-import com.jinelei.numbfish.device.service.OeeRuleService;
+import com.jinelei.numbfish.equipment.convertor.OeeRuleConvertor;
+import com.jinelei.numbfish.equipment.dto.*;
+import com.jinelei.numbfish.equipment.entity.OeeRuleEntity;
+import com.jinelei.numbfish.equipment.mapper.OeeRuleMapper;
+import com.jinelei.numbfish.equipment.service.OeeRuleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

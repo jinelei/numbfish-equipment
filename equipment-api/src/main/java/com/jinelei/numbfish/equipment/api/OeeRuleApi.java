@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.api;
+package com.jinelei.numbfish.equipment.api;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
@@ -6,7 +6,7 @@ import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.dto.*;
+import com.jinelei.numbfish.equipment.dto.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @ApiSupport(order = 3)
 @Tag(name = "Oee规则管理")
 @RequestMapping("/oeeRule")
-@FeignClient(name = "device-service", url = "${device.service.url}")
+@FeignClient(name = "equipment-service", url = "${equipment.service.url}")
 public interface OeeRuleApi {
 
     /**

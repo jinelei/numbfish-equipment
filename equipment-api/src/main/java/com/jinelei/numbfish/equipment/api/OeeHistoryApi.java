@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.api;
+package com.jinelei.numbfish.equipment.api;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
@@ -6,9 +6,9 @@ import com.jinelei.numbfish.common.request.PageRequest;
 import com.jinelei.numbfish.common.view.BaseView;
 import com.jinelei.numbfish.common.view.ListView;
 import com.jinelei.numbfish.common.view.PageView;
-import com.jinelei.numbfish.device.dto.OeeHistoryDeleteRequest;
-import com.jinelei.numbfish.device.dto.OeeHistoryQueryRequest;
-import com.jinelei.numbfish.device.dto.OeeHistoryResponse;
+import com.jinelei.numbfish.equipment.dto.OeeHistoryDeleteRequest;
+import com.jinelei.numbfish.equipment.dto.OeeHistoryQueryRequest;
+import com.jinelei.numbfish.equipment.dto.OeeHistoryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @ApiSupport(order = 3)
 @Tag(name = "Oee历史管理")
 @RequestMapping("/oeeHistory")
-@FeignClient(name = "device-service", url = "${device.service.url}")
+@FeignClient(name = "equipment-service", url = "${equipment.service.url}")
 public interface OeeHistoryApi {
 
     /**

@@ -1,6 +1,6 @@
-package com.jinelei.numbfish.device.dto;
+package com.jinelei.numbfish.equipment.dto;
 
-import com.jinelei.numbfish.device.enumeration.StructureType;
+import com.jinelei.numbfish.equipment.enumeration.StructureType;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;

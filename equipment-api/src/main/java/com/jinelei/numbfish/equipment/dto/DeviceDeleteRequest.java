@@ -1,4 +1,4 @@
-package com.jinelei.numbfish.device.dto;
+package com.jinelei.numbfish.equipment.dto;
 
 import java.io.Serializable;
 import java.util.List;

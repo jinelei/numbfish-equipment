@@ -6,8 +6,8 @@ import org.mapstruct.Mappings;
 
 import com.jinelei.numbfish.equipment.entity.DeviceEntity;
 import com.jinelei.numbfish.equipment.dto.DeviceCreateRequest;
-import com.jinelei.numbfish.device.dto.DeviceResponse;
-import com.jinelei.numbfish.device.dto.DeviceUpdateRequest;
+import com.jinelei.numbfish.equipment.dto.DeviceResponse;
+import com.jinelei.numbfish.equipment.dto.DeviceUpdateRequest;
 
 @SuppressWarnings("unused")
 @Mapper(componentModel = "spring")
