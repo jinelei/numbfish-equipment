@@ -52,7 +52,7 @@
         <nacos-config-spring-boot.version>0.2.12</nacos-config-spring-boot.version>
         <spring-boot.version>3.4.3</spring-boot.version>
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
-        <numbfish-common.version>0.0.1</numbfish-common.version>
+        <numbfish-common.version>0.0.2</numbfish-common.version>
         <numbfish-auth-api.version>0.0.1</numbfish-auth-api.version>
         <numbfish-equipment-api.version>0.0.1</numbfish-equipment-api.version>
         <numbfish-acquisition-api.version>0.0.1</numbfish-acquisition-api.version>
