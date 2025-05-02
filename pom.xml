@@ -11,12 +11,12 @@
     </parent>
 
     <groupId>com.jinelei.numbfish</groupId>
-    <artifactId>device</artifactId>
+    <artifactId>equipment</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1</version>
-    <name>numbfish-device</name>
-    <description>numbfish device center</description>
-    <url>https://jinelei.com/numbfish-device</url>
+    <name>numbfish-equipment</name>
+    <description>numbfish equipment center</description>
+    <url>https://jinelei.com/numbfish-equipment</url>
 
     <licenses>
         <license>
@@ -38,10 +38,10 @@
     </developers>
 
     <scm>
-        <connection>https://github.com/jinelei/numbfish-device.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:jinelei/numbfish-device.git
+        <connection>https://github.com/jinelei/numbfish-equipment.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:jinelei/numbfish-equipment.git
         </developerConnection>
-        <url>https://github.com/jinelei/numbfish-device</url>
+        <url>https://github.com/jinelei/numbfish-equipment</url>
     </scm>
 
     <properties>
@@ -54,7 +54,7 @@
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
         <numbfish-common.version>0.0.1</numbfish-common.version>
         <numbfish-auth-api.version>0.0.1</numbfish-auth-api.version>
-        <numbfish-device-api.version>0.0.1</numbfish-device-api.version>
+        <numbfish-equipment-api.version>0.0.1</numbfish-equipment-api.version>
         <numbfish-acquisition-api.version>0.0.1</numbfish-acquisition-api.version>
         <springboot-maven-plugin.version>3.4.3</springboot-maven-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -70,8 +70,8 @@
     </properties>
 
     <modules>
-        <module>device-api</module>
-        <module>device-client</module>
+        <module>equipment-api</module>
+        <module>equipment-client</module>
     </modules>
 
     <dependencyManagement>

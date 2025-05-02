@@ -2,8 +2,8 @@
 !**/target/
 !.mvn/wrapper/maven-wrapper.jar
 *.class
-/device-api/target/
-/device-client/target/
+/equipment-api/target/
+/equipment-client/target/
 
 ### IntelliJ IDEA ###
 .idea

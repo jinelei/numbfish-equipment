@@ -1,4 +1,4 @@
-# Device 模块
+# Equipment 模块
 
 ## 简介
 
