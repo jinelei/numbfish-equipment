@@ -81,7 +81,7 @@ public class StructureController implements StructureApi {
         List<StructureResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> structureService.convert(entity))
                 .collect(Collectors.toList());
-        return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
+        return new PageView<>(collect, page.getTotal(),  page.getCurrent(), page.getSize());
     }
 
 }

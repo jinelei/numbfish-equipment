@@ -85,7 +85,7 @@ public class AlarmRuleController implements AlarmRuleApi {
         List<AlarmRuleResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> alarmRuleService.convert(entity))
                 .collect(Collectors.toList());
-        return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
+        return new PageView<>(collect, page.getTotal(),  page.getCurrent(), page.getSize());
     }
 
 }

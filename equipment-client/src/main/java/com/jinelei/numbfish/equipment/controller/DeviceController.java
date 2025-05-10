@@ -97,7 +97,7 @@ public class DeviceController implements DeviceApi {
         List<DeviceResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> deviceService.convert(entity))
                 .collect(Collectors.toList());
-        return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
+        return new PageView<>(collect, page.getTotal(),  page.getCurrent(), page.getSize());
     }
 
 }

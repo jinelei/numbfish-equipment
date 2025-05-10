@@ -67,7 +67,7 @@ public class AlarmHistoryController implements AlarmHistoryApi {
         List<AlarmHistoryResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> alarmHistoryService.convert(entity))
                 .collect(Collectors.toList());
-        return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
+        return new PageView<>(collect, page.getTotal(),  page.getCurrent(), page.getSize());
     }
 
 }

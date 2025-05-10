@@ -69,7 +69,7 @@ public class OeeHistoryController implements OeeHistoryApi {
         List<OeeHistoryResponse> collect = page.getRecords().parallelStream()
                 .map(entity -> alarmHistoryService.convert(entity))
                 .collect(Collectors.toList());
-        return new PageView<>(collect, page.getTotal(), page.getPages(), page.getSize());
+        return new PageView<>(collect, page.getTotal(),  page.getCurrent(), page.getSize());
     }
 
 }
